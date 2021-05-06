@@ -19,4 +19,8 @@ data class LoginModel(var login: String = "", var password: String = "") {
             ErrorStates.NONE
         }
     }
+
+    fun isCorrect(): Boolean{
+        return login.isNotEmpty() && password.isNotEmpty()
+    }
 }

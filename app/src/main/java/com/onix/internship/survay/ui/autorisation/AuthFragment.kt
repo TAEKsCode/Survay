@@ -9,7 +9,6 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import com.google.android.material.tabs.TabLayoutMediator
 import com.onix.internship.survay.R
 import com.onix.internship.survay.databinding.FragmentAuthBinding
-import com.onix.internship.survay.ui.autorisation.pager.AuthAdapter
 
 class AuthFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.onix.internship.survay.ui.autorisation.pager
+package com.onix.internship.survay.ui.autorisation
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

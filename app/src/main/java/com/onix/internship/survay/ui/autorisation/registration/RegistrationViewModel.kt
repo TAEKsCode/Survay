@@ -1,13 +1,20 @@
 package com.onix.internship.survay.ui.autorisation.registration
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
 import com.onix.internship.survay.arch.error.ErrorStates
 import com.onix.internship.survay.arch.lifecycle.SingleLiveEvent
+import com.onix.internship.survay.data.database.tables.user.User
+import com.onix.internship.survay.data.database.tables.user.UsersDao
+import com.onix.internship.survay.data.security.md5
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class RegistrationViewModel : ViewModel() {
+class RegistrationViewModel(private val usersDao: UsersDao) : ViewModel() {
 
     val model = RegistrationModel()
 
@@ -32,6 +39,25 @@ class RegistrationViewModel : ViewModel() {
             _errorFirstName.value = isFirstNameCorrect()
             _errorLastName.value = isLastNameCorrect()
             _errorPassword.value = isPasswordCorrect()
+            if (isCorrect()) {
+                registerNewUser()
+            }
+        }
+    }
+
+    private fun registerNewUser() {
+        viewModelScope.launch(Dispatchers.IO) {
+            model.apply {
+                val user = User(
+                    login = login,
+                    password = md5(password),
+                    firstName = firstName,
+                    lastName = lastName,
+                    role = 0
+                )
+                usersDao.insert(user)
+                Log.d("some", "registration successful")
+            }
         }
     }
 }

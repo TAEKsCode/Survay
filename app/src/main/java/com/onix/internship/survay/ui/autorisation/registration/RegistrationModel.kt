@@ -46,4 +46,9 @@ data class RegistrationModel(
             }
         }
     }
+
+    fun isCorrect(): Boolean {
+        return firstName.isNotEmpty() && lastName.isNotEmpty() && login.isNotEmpty()
+                && password.isNotEmpty() && password == confirmedPassword
+    }
 }
