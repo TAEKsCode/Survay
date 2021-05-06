@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/stubFragment">
+    app:startDestination="@id/authFragment">
 
     <fragment
         android:id="@+id/stubFragment"
         android:name="com.onix.internship.survay.ui.stub.StubFragment"
         android:label="StubFragment"
         tools:layout="@layout/fragment_stub"/>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.onix.internship.survay.ui.autorisation.AuthFragment"
+        android:label="AuthFragment"
+        tools:layout="@layout/fragment_auth"/>
 </navigation>

@@ -1,8 +1,7 @@
 package com.onix.internship.survay.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.onix.internship.survay.R
+import androidx.appcompat.app.AppCompatActivity
 import com.onix.internship.survay.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
