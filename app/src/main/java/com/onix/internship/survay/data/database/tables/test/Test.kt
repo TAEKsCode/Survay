@@ -11,6 +11,6 @@ data class Test(
     var testId: Long = 0L,
     @ColumnInfo(name = "name")
     var name: String = "",
-    @ColumnInfo(name = "descrpition")
+    @ColumnInfo(name = "description")
     var description: String = ""
 )

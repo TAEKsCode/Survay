@@ -1,17 +1,16 @@
-package com.onix.internship.survay.ui.autorisation.login
+package com.onix.internship.survay.ui.roles.admin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.onix.internship.survay.data.database.SurvayDatabase
-import com.onix.internship.survay.data.database.tables.user.UsersDao
 
-class LoginViewModelFactory(
+class AdminViewModelFactory(
     private val database: SurvayDatabase
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            return LoginViewModel(database) as T
+        if (modelClass.isAssignableFrom(AdminViewModel::class.java)) {
+            return AdminViewModel(database) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

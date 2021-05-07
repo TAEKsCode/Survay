@@ -8,6 +8,8 @@ import com.onix.internship.survay.data.database.tables.access.Access
 import com.onix.internship.survay.data.database.tables.access.AccessDao
 import com.onix.internship.survay.data.database.tables.answer.Answer
 import com.onix.internship.survay.data.database.tables.answer.AnswersDao
+import com.onix.internship.survay.data.database.tables.auth.Auth
+import com.onix.internship.survay.data.database.tables.auth.AuthDao
 import com.onix.internship.survay.data.database.tables.question.Question
 import com.onix.internship.survay.data.database.tables.question.QuestionsDao
 import com.onix.internship.survay.data.database.tables.result.Result
@@ -20,8 +22,8 @@ import com.onix.internship.survay.data.database.tables.user.User
 import com.onix.internship.survay.data.database.tables.user.UsersDao
 
 @Database(
-    entities = [Access::class, Answer::class, Question::class, Result::class, Test::class, Role::class, User::class],
-    version = 1,
+    entities = [Access::class, Answer::class, Question::class, Result::class, Test::class, Role::class, User::class, Auth::class],
+    version = 2,
     exportSchema = false
 )
 abstract class SurvayDatabase : RoomDatabase() {
@@ -33,6 +35,7 @@ abstract class SurvayDatabase : RoomDatabase() {
     abstract val roleDao: RolesDao
     abstract val testDao: TestsDao
     abstract val userDao: UsersDao
+    abstract val authDao: AuthDao
 
     companion object {
 

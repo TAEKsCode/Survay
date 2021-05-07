@@ -1,6 +1,5 @@
 package com.onix.internship.survay.ui.autorisation.registration
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +10,7 @@ import com.onix.internship.survay.arch.lifecycle.SingleLiveEvent
 import com.onix.internship.survay.data.database.tables.user.User
 import com.onix.internship.survay.data.database.tables.user.UsersDao
 import com.onix.internship.survay.data.security.md5
+import com.onix.internship.survay.ui.autorisation.AuthFragmentDirections
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -53,10 +53,10 @@ class RegistrationViewModel(private val usersDao: UsersDao) : ViewModel() {
                     password = md5(password),
                     firstName = firstName,
                     lastName = lastName,
-                    role = 0
+                    role = 1
                 )
                 usersDao.insert(user)
-                Log.d("some", "registration successful")
+                _navigationEvent.postValue(AuthFragmentDirections.actionAuthFragmentToAdminFragment())
             }
         }
     }

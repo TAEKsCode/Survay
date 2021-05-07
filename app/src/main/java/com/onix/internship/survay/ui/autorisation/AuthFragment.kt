@@ -28,6 +28,7 @@ class AuthFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.authViewPager.adapter = AuthAdapter(this)
         binding.authViewPager.setPageTransformer(MarginPageTransformer(500))
+        binding.authViewPager.offscreenPageLimit = 2
         TabLayoutMediator(binding.authTabLayout, binding.authViewPager) { tab, position ->
             tab.text = requireContext().resources.getStringArray(R.array.auth_headers)[position]
         }.attach()
